@@ -3,6 +3,16 @@
 Thumbs.db
 desktop.ini
 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.venv/
+venv/
+
 # Editores
 .vscode/
 .idea/
