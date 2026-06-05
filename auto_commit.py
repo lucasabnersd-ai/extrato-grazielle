@@ -36,7 +36,7 @@ from pathlib import Path
 # CONFIGURACAO PADRAO - ajuste se mudar de maquina/repositorio
 # ============================================================
 REPO_DIR        = Path(r"C:\Users\lucas\Downloads\se2 - sistema\EXTRATO\extrato grazielle")
-DEFAULT_SOURCE  = Path(r"C:\Users\lucas\Downloads\se2 - sistema\EXTRATO\EXTRATO GRAZI\index.html")
+DEFAULT_SOURCE  = Path(r"C:\Users\lucas\Downloads\se2 - sistema\EXTRATO\extrato grazielle\index.html")
 REMOTE_URL      = "https://github.com/lucasabnersd-ai/extrato-grazielle.git"
 BRANCH          = "main"
 PUBLISHED_NAMES = ["index.html", "espelho_visualizacao.html"]
@@ -170,6 +170,9 @@ def _copiar_origem(source, repo_dir):
         return False
     for nome in PUBLISHED_NAMES:
         dst = Path(repo_dir) / nome
+        if str(src.resolve()).casefold() == str(dst.resolve()).casefold():
+            print(f"  Origem ja e o destino: {dst.name} (copia ignorada)")
+            continue
         shutil.copy2(src, dst)
         print(f"  Copiado: {src.name} -> {dst}")
     return True
